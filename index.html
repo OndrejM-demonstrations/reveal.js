@@ -9,11 +9,14 @@
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
                 <link rel="stylesheet" href="css/theme/black-custom.css">
+                <script src="js/theme/black-custom.js"/>
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
+		<!-- Printing and PDF exports 
+                   Print with Decktape
+                -->
 		<script>
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
@@ -32,6 +35,7 @@
 
 <br/>
 
+<img src="img/devoxxma.png" style="float: left; width: 400px; border: none; background: white">
 <p>Ondrej Mihályi</p>
 <p style="font-size: 70%">@omihalyi</p>
 
@@ -58,7 +62,6 @@
 
                                 <section data-markdown class="regular">
                                     <textarea data-template>
-<span class="template"/>
 # Scalable applications
 
 <ul>
@@ -72,7 +75,6 @@
 
                                 <section data-markdown class="regular">
                                     <textarea data-template>
-<span class="template"/>
 # Highly Scalable applications !?
 
 <ul>
@@ -87,7 +89,6 @@
 
                                 <section data-markdown class="regular ">
                                     <textarea data-template>
-<span class="template"/>
 # Seriously, what are we after?
 
 - The main Goal:
@@ -108,14 +109,13 @@ More CPU, more RAM, etc.
                             <section>
                                 <section data-markdown class="regular smaller-font">
                                     <textarea data-template>
-<span class="template"/>
 # What is scalability
 
 - Ability to improve with more resources
 - Not straightforward
 <ul>
-    <lu>More working hours &#8800;<!-- not equal--> more done</lu>
-    <lu>More people on the job &#8800;<!-- not equal--> faster</lu>
+- More working hours &#8800;<!-- not equal--> more done
+- More people on the job &#8800;<!-- not equal--> faster
 </ul>
 
 <aside class="notes">
@@ -131,7 +131,6 @@ More CPU, more RAM, etc.
 
                                 <section data-markdown class="regular smaller-font">
                                     <textarea data-template>
-<span class="template"/>
 # Types of scaling
 
 - <strong>Vertical</strong>
@@ -142,8 +141,8 @@ More CPU, more RAM, etc.
 </ul>
 - <strong>Horizontal</strong>
 <ul>
-    <lu>enables granular scaling</lu>
-    <lu>more complexity</lu>
+- enables granular scaling
+- more complexity
 </ul>
 
 <aside class="notes">
@@ -159,7 +158,6 @@ More CPU, more RAM, etc.
 
                             <section data-markdown class="regular double-line-header">
                                 <textarea data-template>
-<span class="template"/>
 
 # Challenges of horizontal scaling
 
@@ -175,7 +173,6 @@ More CPU, more RAM, etc.
                         
                             <section data-markdown class="regular">
                                 <textarea data-template>
-<span class="template"/>
 
 # Avoiding bottlenecks
 
@@ -201,53 +198,19 @@ More CPU, more RAM, etc.
                             <section>
                                 <section data-markdown class="small-font regular">
                                     <textarea data-template>
-<span class="template"/>
 
-# In-memory datagrids (1/2)
+# In-memory datagrids
 
-- distributed shared state
+- distributed shared state (memory)
+- distrib. communication (locks, messaging, ...)
+- simple distrib. structures (map, set, queue, ...)
+- sophisticated algorithms behind the scenes
 <ul>
-    <li>data replication and recovery
+    <li>data replication and even distribution
     </li>
-    <li>data evenly distributed
+    <li>auto-discovery of nodes
     </li>
 </ul>
-- distributed communication
-<ul>
-    <li>locks
-    </li>
-    <li>queues, topics, executors
-    </li>
-</ul>
-<aside class="notes">
-    Distributed memory and datagrids can help with horizontal scaling
-     - distributed shared state
-       - no need to synchronize through a central point (DB)
-       - distributed persistence out of the box
-       - data replication and recovery out of the box
-</aside>
-                                    </textarea>
-                                </section>
-
-                                <section data-markdown class="regular small-font">
-                                    <textarea data-template>
-<span class="template"/>
-
-# Distributed in-memory datagrids (2/2)
-
-- simplified programming model
-<ul>
-    <li>common structures (map, set, ...)
-    </li>
-    <li>service-discovery, load-balancing
-    </li>
-</ul>
-- distributed execution
-<ul>
-    <li>code and queries sent to the data
-    </li>
-</ul>
-- bonus: fast persistence with no ORM
 
 <aside class="notes">
     Distributed memory and datagrids can help with horizontal scaling
@@ -261,15 +224,12 @@ More CPU, more RAM, etc.
      - simplified programming model
        - provides abstraction over moving parts (node is up/down, data fetching from a remote node as from local)
        - simple and well-known interfaces - map, queue, executors
-
-     
 </aside>
                                     </textarea>
                                 </section>
 
                                 <section data-markdown class="regular small-font">
                                     <textarea data-template>
-<span class="template"/>
 
 # Examples of data-grids
 
@@ -285,55 +245,9 @@ More CPU, more RAM, etc.
                                 </section>
                             </section>
                             
-                            <section data-markdown class="regular">
-                                <textarea data-template>
-<span class="template"/>
-
-# Hazelcast memory utilization
-
-- Replicated up to X nodes
-- Data evenly distributed
-- Lite nodes without data
-- Off-heap data (enterprise)
-
-<aside class="notes">
-</aside>
-                                </textarea>
-                            </section>
-
+                        <section>
                             <section data-markdown class="regular smaller-font">
                                 <textarea data-template>
-<span class="template"/>
-
-# Other Hazelcast features
-
-- Auto discovery and recovery
-<ul>
-- multicast and TCP joiners
-- data redistribution when nodes join/leave
-</ul>
-- Distributed cache (JCache API)
-- Distributed queries and ExecutorService
-
-<aside class="notes">
-</aside>
-                                </textarea>
-                            </section>
-
-                            <section data-markdown class="only-title">
-                                <textarea data-template>
-<span class="template"/>
-
-# Demo time
-
-<aside class="notes">
-</aside>
-                                </textarea>
-                            </section>
-
-                            <section data-markdown class="regular smaller-font">
-                                <textarea data-template>
-<span class="template"/>
 
 # Payara Server
 
@@ -352,40 +266,50 @@ More CPU, more RAM, etc.
 
                             <section data-markdown class="regular smaller-font">
                                 <textarea data-template>
-<span class="template"/>
 
 # Payara Micro
 
-- derived from embedded GlassFish
+- shares codebase with Payara Server
+- can cluster with Payara Server
 - executable JAR or embedded
 - web apps in a separate file or uber JAR
-- designed for flexible clustering
 - Hazelcast started by default
 
 <aside class="notes">
 </aside>
                                 </textarea>
                             </section>
-
+                        </section>
+                        <section>
                             <section data-markdown class="regular smaller-font">
                                 <textarea data-template>
-<span class="template"/>
 
 # Scale up!
 
-<ul>
-Once an app is designed for flexible clustering, it can be easily scaled to adapt to increasing load.
+<p>
+    Once an app is designed for flexible clustering, it becomes elastic - easily adaptable to increasing load.
+</p>
 <img class="swarm" src="img/swarm.jpg" width="400px">
-</ul>
 
 
 <aside class="notes">
 </aside>
                                 </textarea>
                             </section>
+
+                            <section data-markdown class="only-title">
+                                <textarea data-template>
+
+# Demo time
+
+<aside class="notes">
+</aside>
+                                </textarea>
+                            </section>
+                        </section>
+
                             <section data-markdown class="regular smaller-font">
                                 <textarea data-template>
-<span class="template"/>
 
 # #1 Multiplication
 
@@ -406,7 +330,6 @@ Once an app is designed for flexible clustering, it can be easily scaled to adap
                             <section>
                                 <section data-markdown class="regular smaller-font">
                                     <textarea data-template>
-<span class="template"/>
 
 # #2 Scaling memory
 
@@ -428,7 +351,6 @@ Once an app is designed for flexible clustering, it can be easily scaled to adap
 
                                 <section data-markdown class="regular">
                                     <textarea data-template>
-<span class="template"/>
 
 # #2 Scaling memory
 
@@ -443,7 +365,6 @@ Once an app is designed for flexible clustering, it can be easily scaled to adap
                             <section>
                                 <section data-markdown class="regular smaller-font">
                                     <textarea data-template>
-<span class="template"/>
 
 # #3 Separating data from logic
 
@@ -462,7 +383,6 @@ Once an app is designed for flexible clustering, it can be easily scaled to adap
 
                                 <section data-markdown class="regular">
                                     <textarea data-template>
-<span class="template"/>
 
 # #3 Separating data from logic
 
@@ -474,10 +394,19 @@ Once an app is designed for flexible clustering, it can be easily scaled to adap
                                 </section>
                             </section>
                             
+                            <section data-markdown class="only-title">
+                                <textarea data-template>
+
+# Demo time
+
+<aside class="notes">
+</aside>
+                                </textarea>
+                            </section>
+
                             <section>
                                 <section data-markdown class="regular smaller-font">
                                     <textarea data-template>
-<span class="template"/>
 
 # #4 Scale app parts separately
 
@@ -496,7 +425,6 @@ Once an app is designed for flexible clustering, it can be easily scaled to adap
 
                                 <section data-markdown class="regular">
                                     <textarea data-template>
-<span class="template"/>
 
 # #4 Scale app parts separately
 
@@ -508,9 +436,41 @@ Once an app is designed for flexible clustering, it can be easily scaled to adap
                                 </section>
                             </section>
                             
+                            <section data-markdown class="regular">
+                                <textarea data-template>
+
+# Hazelcast memory utilization
+
+- Replicated up to X nodes
+- Data evenly distributed
+- Lite nodes without data
+- Off-heap data (enterprise)
+
+<aside class="notes">
+</aside>
+                                </textarea>
+                            </section>
+
+                            <section data-markdown class="regular smaller-font">
+                                <textarea data-template>
+
+# Other Hazelcast features
+
+- Auto discovery and recovery
+<ul>
+- multicast and TCP joiners
+- data redistribution when nodes join/leave
+</ul>
+- Distributed cache (JCache API)
+- Distributed queries and ExecutorService
+
+<aside class="notes">
+</aside>
+                                </textarea>
+                            </section>
+
                             <section data-markdown class="only-title">
                                 <textarea data-template>
-<span class="template"/>
 
 # Anything to ask?
 
@@ -523,7 +483,6 @@ Once an app is designed for flexible clustering, it can be easily scaled to adap
                             
                             <section data-markdown class="regular small-font">
                                 <textarea data-template>
-<span class="template"/>
 
 # Resources
 
@@ -543,6 +502,10 @@ Once an app is designed for flexible clustering, it can be easily scaled to adap
                             
                         </div>
 		</div>
+            
+            <div class="templates" style="display: none">
+                <span class="regular-footer footer"><img class="payara" src="img/payara.png"> @OMihalyi</span>
+            </div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
@@ -551,6 +514,7 @@ Once an app is designed for flexible clustering, it can be easily scaled to adap
 			// More info about config & dependencies:
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
+                        theme.initialize();
 			Reveal.initialize({
                                 history: true,
                                 center: true,

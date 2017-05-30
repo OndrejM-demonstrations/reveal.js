@@ -36,8 +36,7 @@
     margin-top: 1em;
 }
 
-.reveal .slides section.regular .template::before {
-    content: "@omihalyi";
+.reveal .slides section.regular .footer {
     position: absolute;
     left: 0;
     bottom: -20px;
@@ -45,6 +44,17 @@
     color: lightgray;
 }
 
+.reveal .slides section.regular .footer img {
+    margin: 0;
+    border: none;
+    background: transparent;
+}
+
+.reveal .slides section.regular .footer img.payara {
+    vertical-align: middle;
+    margin-right: 1em;
+}
+    
 .reveal .slides section.regular.smaller-font ul {
     font-size: 90%;
 }
@@ -81,6 +91,9 @@
     margin: 0.1em;
 }
 
+.reveal .slides section.regular p {
+    text-align: justify ;
+}
 .reveal .slides section.only-title {
     display: flex !important;
     flex-flow: column;
@@ -94,5 +107,6 @@
 
 .reveal .slides img.swarm {
     position:absolute;
+    bottom: 0;
     right: 0%;
 }
