@@ -81,6 +81,9 @@
     margin: 0.1em;
 }
 
+.reveal .slides section.regular p {
+    text-align: justify ;
+}
 .reveal .slides section.only-title {
     display: flex !important;
     flex-flow: column;
@@ -94,5 +97,6 @@
 
 .reveal .slides img.swarm {
     position:absolute;
+    bottom: 0;
     right: 0%;
 }
